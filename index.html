@@ -710,6 +710,126 @@
 			var form_data_obj={};
 			$(".student-payment-button").on("click", function (e) {
 				e.preventDefault();
+
+				//Result
+				var result = true;
+
+				//Variable declaration
+				var name = $("#name").val();
+				var email = $("#email").val();
+				var phone = $("#phone").val();
+				var amount = $("#amount").val();
+				var course = $("#course").val();
+				var country = $("#country").val();
+				var state = $("#state").val();
+				var city = $("#city").val();
+
+				//Regular Expression
+				var expName=/^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$/;
+                var expEmail=/^(?![_.-])((?![_.-][_.-])[a-zA-Z\d_.-]){0,63}[a-zA-Z\d]@((?!-)((?!--)[a-zA-Z\d-]){0,63}[a-zA-Z\d]\.){1,2}([a-zA-Z]{2,14}\.)?[a-zA-Z]{2,14}$/;
+                var expPhone=/^[1-9]\d{9}$/;
+				var expCourse=/^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$/;
+				var expCity=/^(?:((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-.\s])){1,}(['’,\-\.]){0,1}){2,}(([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-. ]))*(([ ]+){0,1}(((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){1,})(['’\-,\.]){0,1}){2,}((([^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]'’,\-\.\s])){2,})?)*)$/;
+				
+				//Name validation
+                if (name == "" || name.length < 3 ) {
+                   alert(" Please enter the valid Name");
+                   result= false;
+				   return false;
+                }
+                if (!isNaN(name)) {
+                   alert("Name should be in character");
+                   result= false;
+				   return false;
+                }
+				if (!expName.test(name)){
+				   alert("Name should be in character");
+				   result= false;
+				   return false;
+				}
+
+				//email validation
+				if (email == "" || email.length < 3 ) {
+                   alert(" Please enter the valid Email.");
+                   result= false;
+				   return false;
+                }
+				if (!expEmail.test(email)){
+				   alert("Please enter the valid Email that contant @");
+				   result= false;
+				   return false;
+				}
+
+				//Phone validation
+				if (phone == "" || phone.length < 10 ) {
+                   alert(" Please enter the valid Phone Number that contant 10 digits.");
+                   result= false;
+				   return false;
+                }
+				if (!expPhone.test(phone)){
+				   alert("Please enter the valid Phone.");
+				   result= false;
+				   return false;
+				}
+
+				//Amount Validation
+				if (amount == "" || amount.length < 3 ) {
+                   alert(" Please enter the valid amount.");
+                   result= false;
+				   return false;
+                }
+				
+				//Course validation
+				if (course == "" || course.length < 3 ) {
+                   alert(" Please enter the valid Course name.");
+                   result= false;
+				   return false;
+                }
+                if (!isNaN(course)) {
+                   alert("Course Name should be in character");
+                   result= false;
+				   return false;
+                }
+				if (!expCourse.test(course)){
+				   alert("Course Name should be in character");
+				   result= false;
+				   return false;
+				}
+
+				//Country validation
+				if (country == "" ) {
+                   alert(" Please enter your country name.");
+                   result= false;
+				   return false;
+                }
+
+				//State validation 
+				if (state == "" ) {
+                   alert(" Please enter your state name.");
+                   result= false;
+				   return false;
+                }
+
+				//City Validation
+				if (city == "" || city.length < 3 ) {
+                   alert(" Please enter the valid city Name");
+                   result= false;
+				   return false;
+                }
+                if (!isNaN(city)) {
+                   alert("City name should be in character");
+                   result= false;
+				   return false;
+                }
+				if (!expCity.test(city)){
+				   alert("City name should be in character");
+				   result= false;
+				   return false;
+				}
+
+
+
+				if (result) {
 				$("#Student-Detail").removeClass("active");
 				$("#transaction").addClass("show active");
 				$("#details_nav_item").removeClass("active");
@@ -723,6 +843,7 @@
 				$("#table_amount").html(form_data_obj['amount']+" INR");
 				$("#table_contact").html(form_data_obj['phone']);
 				$("#table_address").html(form_data_obj['city']+", "+form_data_obj['state']+", "+form_data_obj['country']);
+				}
 			})
 
 			$(".edit-button").click(function(e){
