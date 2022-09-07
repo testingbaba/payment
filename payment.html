@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="csrf-token" content="crlWt6QjxGMrPvtUxD9D1HB709UzlOFgJmK3XjeZ">
+
+	<title>Croma Campus - Online Payments (Gateway, Google Pay, PayTm, Phone Pay & UPI)
+	</title>
+	<meta name="keywords" content="Fee Payment, Fee Deposit ">
+	<meta name="description"
+		content="We accept payment Instantly with Google Pay, PayTm, Phone Pay & UPI. Safe, Simple, and Helpful way to manage your money, giving you a clearer picture of your spending and savings. ">
+
+	<link rel="stylesheet" type="text/css" href="assests/css/bootstrap.css" async>
+	<link rel="stylesheet" type="text/css" href="css/style.css" async>
+
+	<style>
+		.drop-zone{
+			width: 90%;
+			margin: 5px auto;
+			padding: 25px 10px;
+			border-radius: 5px;
+			box-shadow: 0 0 7px 5px #dcdcdc85;
+			position: relative;
+		}
+		.drop-zone h4{
+			margin-top: 10px;
+			font-size: 22px;
+			font-weight: 600;
+		}
+		.drop-zone p{
+			margin-top: -10px;
+			margin-bottom: 20px;
+		}
+		.drop-zone__input{
+			/* position: absolute;
+			bottom: 45px;
+			left: 90px;
+			height: 40px;
+			width: 30%;
+			opacity: 0; */
+			margin-left: 20px;
+			margin-top: 0px;
+		}
+	</style>
+
+</head>
+
+
+<body>
+
+	<style>
+		a.disabled {
+			pointer-events: none;
+			cursor: default;
+		}
+	</style>
+
+	<div class="main">
+		<section class="fee-deposit">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-1"></div>
+					<div class="col-md-10">
+						<nav>
+							<div class="nav payment-form" role="tablist">
+								<a class="nav-item active" id="details_nav_item" data-toggle="tab" href="#Student-Detail" role="tab"
+									aria-controls="nav-home" aria-selected="true">Details</a>
+
+								<a class="nav-item disabled" id="transaction_nav_item" data-toggle="tab" href="#transaction" role="tab"
+									aria-controls="nav-profile" aria-selected="false">Transaction</a>
+
+								<a class="nav-item disabled" id="payment_nav_item" data-toggle="tab" href="#payment" role="tab"
+									aria-controls="nav-profile" aria-selected="false">Payment</a>
+
+								<a class="nav-item disabled" id="confirmation_nav_item" data-toggle="tab" href="#confirmation" role="tab"
+									aria-controls="nav-about" aria-selected="false"
+									style="pointer-events: none">Confirmation</a>
+							</div>
+						</nav>
+						<div class="tab-content">
+
+							<div class="tab-pane fade show active" id="Student-Detail" role="tabpanel"
+								aria-labelledby="Student-Detail">
+								<div class="student-payment">
+									<h3>Please Enter Your Details Here</h3>
+
+									<form method="POST" class="Student-Detail-form"  autocomplete="off">
+										<div class="form-inline" >
+											<!-- <input type="hidden" name="_token"
+												value="crlWt6QjxGMrPvtUxD9D1HB709UzlOFgJmK3XjeZ" /> -->
+											<div class="ans">
+												<input type="text" name="name" value="" class="form-control"
+													placeholder="Enter name *">
+
+											</div>
+											<div class="ans">
+												<input type="text" name="email" value="" class="form-control"
+													placeholder="E-mail *">
+
+											</div>
+										</div>
+										<div class="form-inline">
+											<div class="ans">
+												<input type="tel" name="phone" value="" class="form-control"
+													maxlength="16" onkeypress="return isNumberKey(event);"
+													placeholder="Contact No. *">
+											</div>
+											<div class="ans">
+												<input type="tel" name="amount" value="" class="form-control"
+													maxlength="6" onkeypress="return isNumberKey(event);"
+													placeholder="Amount">
+											</div>
+										</div>
+										<div class="form-inline">
+											<div class="ans">
+												<input type="text" name="course" value="" class="form-control"
+													placeholder="Course *">
+											</div>
+											<div class="ans">
+												<select name="country" class="select_country">
+													<option value="">Select Country * </option>
+
+													<option value="India">India</option>
+
+												</select>
+											</div>
+										</div>
+										<div class="form-inline">
+											<div class="ans">
+
+												<select name="state" class="show_state select2_state">
+
+													<option value="">Select State * </option>
+													<option value="Andhra Pradesh">Andhra Pradesh</option>
+													<option value="Arunachal Pradesh">Arunachal Pradesh</option>
+													<option value="Assam">Assam</option>
+													<option value="Bihar">Bihar</option>
+													<option value="Chhattisgarh">Chhattisgarh</option>
+													<option value="Goa">Goa</option>
+													<option value="Gujarat">Gujarat</option>
+													<option value="Haryana">Haryana</option>
+													<option value="Himachal Pradesh">Himachal Pradesh</option>
+													<option value="Jammu and Kashmir">Jammu and Kashmir</option>
+													<option value="Jharkhand">Jharkhand</option>
+													<option value="Karnataka">Karnataka</option>
+													<option value="Kerala">Kerala</option>
+													<option value="Madhya Pradesh">Madhya Pradesh</option>
+													<option value="Maharashtra">Maharashtra</option>
+													<option value="Manipur">Manipur</option>
+													<option value="Meghalaya">Meghalaya</option>
+													<option value="Mizoram">Mizoram</option>
+													<option value="Nagaland">Nagaland</option>
+													<option value="Odisha">Odisha</option>
+													<option value="Punjab">Punjab</option>
+													<option value="Rajasthan">Rajasthan</option>
+													<option value="Sikkim">Sikkim</option>
+													<option value="Tamil Nadu">Tamil Nadu</option>
+													<option value="Telangana">Telangana</option>
+													<option value="Tripura">Tripura</option>
+													<option value="Uttar Pradesh">Uttar Pradesh</option>
+													<option value="Uttarakhand">Uttarakhand</option>
+													<option value="West Bengal">West Bengal</option>
+
+												</select>
+											</div>
+											<div class="ans">
+												<input type="text" name="city" value="" class="form-control"
+													placeholder="Enter city">
+
+											</div>
+										</div>
+
+										<button type="submit" class="student-payment-button" name="checkout"
+											value="CheckOut">proceed</button>
+									</form>
+								</div>
+							</div>
+
+							<div class="tab-pane fade show " id="transaction" role="tabpanel"
+								aria-labelledby="transaction">
+								<div class="transaction-section">
+									<div class="transaction_details"></div>
+									<table>
+										<tbody>
+											<tr>
+												<td><strong>Summary</strong></td>
+
+												<td><strong>Details</strong></td>
+											</tr>
+
+											<tr style="background-color:#f4f5f7;color:#003453;">
+												<th>Name</th>
+
+												<td id="table_name">kinshuk</td>
+											</tr>
+											<tr style="background-color:#ddd;color:#003453;">
+												<th>Email</th>
+
+												<td id="table_email">kinshuk@gmail.com</td>
+											</tr>
+											<tr style="background-color:#f4f5f7;color:#003453;">
+												<th>Course</th>
+
+												<td id="table_course">software</td>
+											</tr>
+											<tr style="background-color:#ddd;color:#003453;">
+												<th>Amount</th>
+
+												<td id="table_amount">6000 INR</td>
+											</tr>
+											<tr style="background-color:#f4f5f7;color:#003453;">
+												<th>Contact</th>
+
+												<td id="table_contact">9064861234</td>
+											</tr>
+
+											<tr style="background-color:#ddd;color:#003453;">
+												<th>City</th>
+
+												<td id="table_address">noida, West Bengal, India</td>
+											</tr>
+
+										</tbody>
+									</table>
+									<style>th,td{padding-left: 15px;}</style>
+
+
+<!-- 
+									<form name="" class="" action="ccavenue-Pay-Checkout" id="ccavenue-frm-payment"
+										method="post">
+										<input type="hidden" name="_token"
+											value="B0qIOoDQU27NpiAOdnHzC5gMuCYzE4jOyMdfVuvY">
+
+
+										<input type="hidden" name="o"
+											value="eyJuYW1lIjoia2luc2h1ayIsImVtYWlsIjoia2luc2h1a0BnbWFpbC5jb20iLCJjb3Vyc2UiOiJzb2Z0d2FyZSIsImFtdCI6IjYwMDAiLCJwaG9uZSI6IjkwNjQ4NjEyMzQiLCJjaXR5Ijoibm9pZGEiLCJzdGF0ZSI6Ildlc3QgQmVuZ2FsIiwiY291bnRyeSI6IkluZGlhIn0="
+											readonly="">
+										<input type="hidden" name="tid" id="tid" readonly="" value="1661239404132">
+										<input type="hidden" name="merchant_id" value="1203768">
+										<input type="hidden" name="order_id" id="order_id" value="CC_447_1661239404132">
+										<input type="hidden" name="amount" value="6000">
+										<input type="hidden" name="currency" value="INR">
+
+
+										<input type="hidden" name="redirect_url" value="thankyou">
+										<input type="hidden" name="cancel_url" value="thankyou">
+
+
+
+										<input type="hidden" class="form-control" id="amount" name="amount"
+											placeholder="amount" value="6000" readonly="readonly">
+										<input type="hidden" name="billing_name" class="form-control" id="billing-name"
+											value="kinshuk" placeholder="Name" required="">
+										<input type="hidden" name="billing_email" class="form-control"
+											id="billing-email" value="kinshuk@gmail.com" placeholder="Email"
+											required="">
+										<input type="hidden" name="billing_tel" class="form-control" id="billing-phone"
+											value="9064861234" placeholder="Phone" required="">
+
+										<input type="hidden" name="billing_notes" class="form-control" id="course"
+											value="software" placeholder="Course">
+										<input type="hidden" name="billing_country" class="form-control"
+											id="billing_country" value="India" placeholder="Country">
+										<input type="hidden" name="billing_state" class="form-control"
+											id="billing_state" value="West Bengal" placeholder="State">
+
+										<input type="hidden" name="billing_city" class="form-control" id="city"
+											value="noida"> -->
+
+										<div class="trans-button">
+											<a class="edit-button" href="#">Edit Now</a>
+											<a class="cancel-button" href="./payment.html">Cancel</a>
+											<a class="paygat-button" href="#">proceed</a>
+										</div>
+									</form>
+								</div>
+							</div>
+
+							<div class="tab-pane fade show " id="payment" role="tabpanel" aria-labelledby="payment">
+
+								<nav>
+									<div class="nav payment-process" role="tablist">
+
+										<a class="nav-item active" data-toggle="tab" href="#GooglePay" role="tab"
+											aria-controls="nav-home" aria-selected="true">GooglePay</a>
+
+										<a class="nav-item " data-toggle="tab" href="#PhonePay" role="tab"
+											aria-controls="nav-home" aria-selected="true">PhonePay</a>
+
+										<a class="nav-item " data-toggle="tab" href="#PayTm" role="tab"
+											aria-controls="nav-home" aria-selected="true">PayTm</a>
+
+
+										<form name="" class="mt-lg-0 mt-3" action="ccavenue-Pay-Checkout"
+											id="ccavenue-frm-payment" method="post">
+
+											<input type="hidden" name="_token"
+												value="2eU7dTnJySsMRx3oiQlRr3uSpDnaFR1ZdUPNDRPN">
+
+											<input type="hidden" name="o"
+												value="eyJuYW1lIjoiS2lzZGJmaiBzbmRiYSIsImVtYWlsIjoia2J4emN6amJ6eGN2YkBnbWFpbC5jb20iLCJjb3Vyc2UiOiJzb2Z0d2FyZSIsImFtdCI6IjMyNjE1NCIsInBob25lIjoiMTIzNDU2Nzg2NzgiLCJjaXR5Ijoibm9pZGEiLCJzdGF0ZSI6IkFzc2FtIiwiY291bnRyeSI6IkluZGlhIn0="
+												readonly="">
+
+											<input type="hidden" name="tid" id="tid" readonly="" value="1661436221611">
+
+											<input type="hidden" name="merchant_id" value="1203768">
+
+											<input type="hidden" name="order_id" id="order_id"
+												value="CC_447_1661436221611">
+
+											<input type="hidden" name="amount" value="326154">
+
+											<input type="hidden" name="currency" value="INR">
+
+
+
+
+
+
+
+											<input type="hidden" name="redirect_url" value="thankyou">
+
+											<input type="hidden" name="cancel_url" value="thankyou">
+
+
+											<input type="hidden" class="form-control" id="amount" name="amount"
+												placeholder="amount" value="326154" readonly="readonly">
+
+											<input type="hidden" name="billing_name" class="form-control"
+												id="billing-name" value="Kisdbfj sndba" placeholder="Name" required="">
+
+											<input type="hidden" name="billing_email" class="form-control"
+												id="billing-email" value="kbxzczjbzxcvb@gmail.com" placeholder="Email"
+												required="">
+
+											<input type="hidden" name="billing_tel" class="form-control"
+												id="billing-phone" value="12345678678" placeholder="Phone" required="">
+
+
+
+											<input type="hidden" name="billing_notes" class="form-control" id="course"
+												value="software" placeholder="Course">
+
+											<input type="hidden" name="billing_country" class="form-control"
+												id="billing_country" value="India" placeholder="Country">
+
+											<input type="hidden" name="billing_state" class="form-control"
+												id="billing_state" value="Assam" placeholder="State">
+
+
+
+											<input type="hidden" name="billing_city" class="form-control" id="city"
+												value="noida">
+
+
+											<div class="trans-button"
+												style="margin-top: 0px;text-align: center;font-size: 15px;font-weight: 600;color: #8e8e8e !important;">
+
+												<button type="submit" class="nav-item" name="proceed">Net Banking/Debit
+													&amp; Credit Card</button>
+
+
+
+											</div>
+
+										</form>
+
+									</div>
+
+								</nav>
+
+
+								<div class="tab-content">
+
+									<div class="tab-pane fade show active" id="GooglePay" role="tabpanel"
+										aria-labelledby="PAYTM-Detail">
+
+										<div class="PayTM-payment">
+
+											<div class="payment-main">
+
+												<div class="gopayment" style="width:40%">
+													<style>
+														@media only screen and (max-width: 700px) {
+															.gopayment {
+																width: 100% !important;
+															}
+														}
+													</style>
+
+													<div class="googlepayment-barcode">
+
+														<div class="img-logo">
+
+															<img src="./img/gpay-logo.png" height="70px">
+
+														</div>
+
+
+
+														<a href="javascript:void(0);"
+															style="text-align:center;font-size:16px; font-weight: 600; margin: 12px 0; box-shadow:0 0 7px 5px #dcdcdc85;"
+															class="form-control"
+															onclick="copyToClipboard('8001236308')">8001236308 <i
+																class="fa fa-clone" style="float:right; padding:4px;"
+																aria-hidden="true"></i></a>
+
+
+
+														<div class="barcode-blur">
+
+
+
+
+															<img src="./img/GPay.jpeg"
+																alt="" width="100%">
+
+
+
+
+														</div>
+														<p
+															style="font-weight:600; text-align:center; color:#042d6e; padding:10px 0">
+															Please upload Payment screenshot</p>
+
+
+
+														<div class="dorp-scan-doc">
+
+
+															<form action="" enctype="multipart/form-data" method="post"
+																id="PayGooglePay" data-pid="PayGooglePay">
+																<div class="drop-zone all-payment-drag">
+																	<span class="drop-zone__prompt text-center">
+																		<div>
+																			<img src="./img/file-img.png"
+																				alt="upload-copy" width="20%">
+																			<h4 style="color:#042d6e;">Proof of Payment </h4>
+																			<p>Upload Your Screanshot</p>
+																			<div> <img src="./img/upload-img.png"
+																					alt="upload-img" width="30%"></div>
+																		</div>
+																	</span>
+																	<input type="hidden" value="9650399127"
+																		name="mobile">
+																	<input type="hidden" name="o"
+																		value="eyJuYW1lIjoiS2lzZGJmaiBzbmRiYSIsImVtYWlsIjoia2J4emN6amJ6eGN2YkBnbWFpbC5jb20iLCJjb3Vyc2UiOiJzb2Z0d2FyZSIsImFtdCI6IjMyNjE1NCIsInBob25lIjoiMTIzNDU2Nzg2NzgiLCJjaXR5Ijoibm9pZGEiLCJzdGF0ZSI6IkFzc2FtIiwiY291bnRyeSI6IkluZGlhIn0=">
+																	<input type="hidden" name="mode" value="PayTm">
+																	<input type="hidden" name="order_id"
+																		id="GooglePayorder"
+																		value="CC_447_1661436221611">
+																	<input type="file" name="photoimg"
+																		class="drop-zone__input"
+																		accept="image/png, image/jpeg,.pdf">
+																	<a href="javascript:void(0);"
+																		id="getGooglePayImage"></a>
+																	<!-- <span class="loadview"></span> -->
+																</div>
+															</form>
+
+
+
+														</div>
+
+
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+
+									<div class="tab-pane fade " id="PhonePay" role="tabpanel"
+										aria-labelledby="PAYTM-Detail">
+
+										<div class="PayTM-payment">
+
+											<div class="payment-main">
+
+												<div class="gopayment" style="width:40%">
+													<style>
+														@media only screen and (max-width: 700px) {
+															.gopayment {
+																width: 100% !important;
+															}
+														}
+													</style>
+
+													<div class="googlepayment-barcode">
+
+														<div class="img-logo">
+
+															<img src="./img/phonepay-logo.png">
+
+														</div>
+
+
+
+														<a href="javascript:void(0);"
+															style="text-align:center;font-size:16px; font-weight: 600; margin: 12px 0; box-shadow:0 0 7px 5px #dcdcdc85;"
+															class="form-control"
+															onclick="copyToClipboard('8001236308')">8001236308 <i
+																class="fa fa-clone" style="float:right; padding:4px;"
+																aria-hidden="true"></i></a>
+
+
+
+														<div class="barcode-blur">
+
+
+
+
+															<img src="./img/PhonePay.jpeg"
+																alt="" width="100%">
+
+
+
+
+														</div>
+														<p
+															style="font-weight:600; text-align:center; color:#042d6e; padding:10px 0">
+															Please upload Payment screenshot</p>
+
+
+
+														<div class="dorp-scan-doc">
+
+
+															<form action="" enctype="multipart/form-data" method="post"
+																id="PayPhonePay" data-pid="PayPhonePay">
+																<div class="drop-zone all-payment-drag">
+																	<span class="drop-zone__prompt text-center">
+																		<div>
+																			<img src="./img/file-img.png"
+																				alt="upload-copy" width="20%">
+																			<h4 style="color:#042d6e;">Proof of Payment </h4>
+																			<p>Upload Your Screanshot</p>
+																			<div> <img src="./img/upload-img.png"
+																					alt="upload-img" width="30%"></div>
+																		</div>
+																	</span>
+																	<input type="hidden" value="9650399127"
+																		name="mobile">
+																	<input type="hidden" name="o"
+																		value="eyJuYW1lIjoiS2lzZGJmaiBzbmRiYSIsImVtYWlsIjoia2J4emN6amJ6eGN2YkBnbWFpbC5jb20iLCJjb3Vyc2UiOiJzb2Z0d2FyZSIsImFtdCI6IjMyNjE1NCIsInBob25lIjoiMTIzNDU2Nzg2NzgiLCJjaXR5Ijoibm9pZGEiLCJzdGF0ZSI6IkFzc2FtIiwiY291bnRyeSI6IkluZGlhIn0=">
+																	<input type="hidden" name="mode" value="PayTm">
+																	<input type="hidden" name="order_id"
+																		id="PhonePayorder" value="CC_447_1661436221611">
+																	<input type="file" name="photoimg"
+																		class="drop-zone__input"
+																		accept="image/png, image/jpeg,.pdf">
+																	<a href="javascript:void(0);"
+																		id="getPhonePayImage"></a>
+																	<span class="loadview"></span>
+																</div>
+															</form>
+
+
+
+														</div>
+
+
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+
+									<div class="tab-pane fade " id="PayTm" role="tabpanel"
+										aria-labelledby="PAYTM-Detail">
+
+										<div class="PayTM-payment">
+
+											<div class="payment-main">
+
+												<div class="gopayment" style="width:40%">
+													<style>
+														@media only screen and (max-width: 700px) {
+															.gopayment {
+																width: 100% !important;
+															}
+														}
+													</style>
+
+													<div class="googlepayment-barcode">
+
+														<div class="img-logo">
+
+															<img src="./img/paytm-logo.png" height="70px">
+
+														</div>
+
+
+
+														<a href="javascript:void(0);"
+															style="text-align:center;font-size:16px; font-weight: 600; margin: 12px 0; box-shadow:0 0 7px 5px #dcdcdc85;"
+															class="form-control"
+															onclick="copyToClipboard('9064706514')">9064706514 <i
+																class="fa fa-clone" style="float:right; padding:4px;"
+																aria-hidden="true"></i></a>
+
+
+
+														<div class="barcode-blur">
+
+
+
+
+															<img src="./img/PayTM.jpeg"
+																alt="" width="100%">
+
+
+
+
+														</div>
+														<p
+															style="font-weight:600; text-align:center; color:#042d6e; padding:10px 0">
+															Please upload Payment screenshot</p>
+
+
+
+														<div class="dorp-scan-doc">
+
+
+															<form action="" enctype="multipart/form-data" method="post"
+																id="PayPayTm" data-pid="PayPayTm">
+																<div class="drop-zone all-payment-drag">
+																	<span class="drop-zone__prompt text-center">
+																		<div>
+																			<img src="./img/file-img.png"
+																				alt="upload-copy" width="20%">
+																			<h4 style="color:#042d6e;">Proof of Payment </h4>
+																			<p>Upload Your Screanshot</p>
+																			<div> <img src="./img/upload-img.png"
+																					alt="upload-img" width="30%"></div>
+																		</div>
+																	</span>
+																	<input type="hidden" value="9818014543"
+																		name="mobile">
+																	<input type="hidden" name="o"
+																		value="eyJuYW1lIjoiS2lzZGJmaiBzbmRiYSIsImVtYWlsIjoia2J4emN6amJ6eGN2YkBnbWFpbC5jb20iLCJjb3Vyc2UiOiJzb2Z0d2FyZSIsImFtdCI6IjMyNjE1NCIsInBob25lIjoiMTIzNDU2Nzg2NzgiLCJjaXR5Ijoibm9pZGEiLCJzdGF0ZSI6IkFzc2FtIiwiY291bnRyeSI6IkluZGlhIn0=">
+																	<input type="hidden" name="mode" value="PayTm">
+																	<input type="hidden" name="order_id" id="PayTmorder"
+																		value="CC_447_1661436221611">
+																	<input type="file" name="photoimg"
+																		class="drop-zone__input"
+																		accept="image/png, image/jpeg,.pdf">
+																	<a href="javascript:void(0);"
+																		id="getPayTmImage"></a>
+																	<span class="loadview"></span>
+																</div>
+															</form>
+
+
+
+														</div>
+
+
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+	</div>
+
+	<script src="assests/js/jquery.js"></script>
+	<!-- <script src="assests/js/owl.carousel.js"></script> -->
+	<script src="assests/js/popper.min.js"></script>
+	<script src="assests/js/bootstrap.min.js"></script>
+	<script src="js/jquery-ui.min.js"> </script>
+	<script src="select2/js/select2.full.js"></script>
+	<script src="https://kit.fontawesome.com/b4503f2b6c.js" crossorigin="anonymous"></script>
+	<script src='https://www.google.com/recaptcha/api.js' async defer></script>
+	<script src="js/script.js"></script>
+
+	<script>
+		$(document).ready(function () {
+			var form_data_obj={};
+			$(".student-payment-button").on("click", function (e) {
+				e.preventDefault();
+				$("#Student-Detail").removeClass("active");
+				$("#transaction").addClass("show active");
+				$("#details_nav_item").removeClass("active");
+				$("#transaction_nav_item").removeClass("disable");
+				$("#transaction_nav_item").addClass("active");
+				$(".Student-Detail-form").serializeArray().map(function(x){form_data_obj[x.name]=x.value})
+				console.log(form_data_obj);
+				$("#table_name").html(form_data_obj['name']);
+				$("#table_email").html(form_data_obj['email']);
+				$("#table_course").html(form_data_obj['course']);
+				$("#table_amount").html(form_data_obj['amount']+" INR");
+				$("#table_contact").html(form_data_obj['phone']);
+				$("#table_address").html(form_data_obj['city']+", "+form_data_obj['state']+", "+form_data_obj['country']);
+			})
+
+			$(".edit-button").click(function(e){
+				e.preventDefault();
+				$("#transaction").removeClass("show active");
+				$("#Student-Detail").addClass("active");
+				$("#transaction_nav_item").removeClass("active");
+				$("#details_nav_item").addClass("active");	
+			})
+
+			$(".paygat-button").on("click",function(e){
+				e.preventDefault();
+				$("#transaction").removeClass("show active");
+				$("#payment").addClass("show active");
+				$("#transaction_nav_item").removeClass("active");
+				$('#payment_nav_item').removeClass("disable");
+				$('#payment_nav_item').addClass("active");
+			})
+		})
+	</script>
+
+</body>
+
+</html>
